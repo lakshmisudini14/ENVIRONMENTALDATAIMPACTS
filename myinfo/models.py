@@ -1,10 +1,10 @@
 from django.db import models
 
-# Create your models here.
-from django.db import models
-
 class MyInfo(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, primary_key=True)  # Explicitly set 'name' as the primary key
 
-    def _str_(self):
+    class Meta:
+        db_table = 'myinfo'  # Use the existing table
+
+    def __str__(self):
         return self.name
